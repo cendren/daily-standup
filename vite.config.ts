@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   root: 'public',
-  base: '/daily-standup/',  // ← THIS FIXES 404s ON ASSETS
+  base: '/',  // ← THIS IS THE FINAL CORRECT VALUE
   server: {
     host: "::",
     port: 8080,
