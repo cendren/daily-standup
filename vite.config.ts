@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  root: 'public', // ← ADD THIS LINE
   base: process.env.GITHUB_PAGES ? '/daily-standup/' : '/',
   server: {
     host: "::",
@@ -12,8 +12,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
@@ -21,6 +20,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    outDir: '../dist', // ← Output goes outside public/
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: {
