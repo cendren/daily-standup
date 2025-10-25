@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  root: 'public', // ADD THIS LINE
   base: process.env.GITHUB_PAGES ? '/daily-standup/' : '/',
   server: {
     host: "::",
@@ -16,11 +15,11 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(process.cwd(), "./src"),
+      "@": path.resolve(__dirname, "./src"), // Use __dirname, not process.cwd()
     },
   },
   build: {
-    outDir: 'dist', // Correct
+    outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
       output: {
