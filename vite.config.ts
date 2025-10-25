@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
+import { componentTagger } from "lovable-tagger";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   root: 'public',
-  base: '/',  // ← THIS IS THE FINAL CORRECT VALUE
+  base: '/daily-standup/',  // THIS IS THE CORRECT VALUE
   server: {
     host: "::",
     port: 8080,
