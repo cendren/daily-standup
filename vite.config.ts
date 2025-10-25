@@ -16,11 +16,11 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "public/src"),  // ← UPDATE THIS
+      "@": path.resolve(__dirname, "public/src"),
     },
   },
   build: {
-    outDir: "dist",
+    outDir: "../dist",  // ← FIXED: BUILD TO PROJECT ROOT
     emptyOutDir: true,
     rollupOptions: {
       output: {
