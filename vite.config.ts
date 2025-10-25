@@ -15,11 +15,11 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"), // Use __dirname, not process.cwd()
+      "@": path.resolve(__dirname, "src"), // __dirname = reliable in CI
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: "dist", // MUST be "dist", not "../dist"
     emptyOutDir: true,
     rollupOptions: {
       output: {
