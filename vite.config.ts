@@ -1,11 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { fileURLToPath } from 'url';
 import { componentTagger } from "lovable-tagger";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: process.env.GITHUB_PAGES ? '/daily-standup/' : '/',  // ← ADD THIS LINE
+  base: process.env.GITHUB_PAGES ? '/daily-standup/' : '/',
   server: {
     host: "::",
     port: 8080,
@@ -24,7 +27,6 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split vendor libraries into separate chunks
           vendor: ['react', 'react-dom'],
           ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-popover'],
           dnd: ['@dnd-kit/core', '@dnd-kit/sortable', '@dnd-kit/utilities'],
@@ -32,9 +34,7 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    // Enable CSS code splitting
     cssCodeSplit: true,
-    // Optimize chunk size
     chunkSizeWarningLimit: 1000,
   },
 }));
