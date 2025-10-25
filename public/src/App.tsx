@@ -22,7 +22,7 @@ const App = () => (
       <AuthProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/daily-standup">
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/auth" element={<Auth />} />
