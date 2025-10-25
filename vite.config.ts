@@ -1,11 +1,11 @@
-import { mode } from "vite";
+import { defineConfig } from "vite";  // ← FIXED
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   root: 'public',
-  base: '/daily-standup/', // HARDCODED — REQUIRED FOR GITHUB PAGES
+  base: '/daily-standup/',
   server: {
     host: "::",
     port: 8080,
