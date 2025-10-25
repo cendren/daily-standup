@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   root: 'public',
-  base: '/',  // ← FIXED: GitHub Pages serves from root
+  base: '/daily-standup/',  // ← THIS IS REQUIRED
   server: {
     host: "::",
     port: 8080,
